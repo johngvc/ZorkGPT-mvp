@@ -1,7 +1,6 @@
 {
   "name": "node-typescript-boilerplate",
   "version": "0.0.0",
-  "description": "Minimalistic boilerplate to quick-start Node.js development in TypeScript.",
   "type": "module",
   "engines": {
     "node": ">= 18.12 <19"
@@ -19,10 +18,12 @@
     "rimraf": "~5.0",
     "ts-api-utils": "~1.0",
     "ts-jest": "~29.1",
-    "typescript": "~5.1"
+    "typescript": "~5.1",
+    "nodemon": "^3.0.1",
+    "ts-node": "^10.9.1"
   },
   "scripts": {
-    "start": "node build/src/main.js",
+    "start": "nodemon --exec ts-node --esm src/index.ts",
     "clean": "rimraf coverage build tmp",
     "prebuild": "npm run lint",
     "build": "tsc -p tsconfig.json",
@@ -33,9 +34,9 @@
     "prettier": "prettier --config .prettierrc --write .",
     "test:watch": "jest --watch"
   },
-  "author": "Jakub Synowiec <jsynowiec@users.noreply.github.com>",
   "license": "Apache-2.0",
   "dependencies": {
+    
     "tslib": "~2.6"
   },
   "volta": {
