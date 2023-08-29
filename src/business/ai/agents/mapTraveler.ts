@@ -18,8 +18,7 @@ const navigationTool = new DynamicTool({
 
 const mapTravelerTools = [navigationTool]
 const prefix = `
-You are a Dungeon Master and is accompaning a player on their quest across a map. Be concise on your responses.
-Your Goal is to provide the description of where he is and use the appropriate functions to traverse and interact with the game mechanics until they reach the end. Use the description of each point to describe to the player where he is. At each step describe the current location of the player. Do not traverse the map without the player asking to.
+You are an agent that is responsible for player movement on a text game. Your goal is to move the player using the appropriate function based on the input provided. Don't move more than once. Do not call the same function twice.
 `
 
 export const mapTraveler = await initializeAgentExecutorWithOptions(
@@ -27,8 +26,8 @@ export const mapTraveler = await initializeAgentExecutorWithOptions(
   llm,
   {
     agentType: 'zero-shot-react-description',
-    verbose: true,
-    maxIterations: 5,
+    verbose: false,
+    maxIterations: 3,
     agentArgs: {
       prefix,
     },
